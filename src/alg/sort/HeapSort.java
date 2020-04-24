@@ -26,43 +26,49 @@ public class HeapSort extends Sort  {
         heapSort.sortArray();
     }
 
+
+
     private void heapSort(int[] array) {
+        buildMaxHeap(array);
 
-        int n = array.length;
-
-        for (int i = n / 2 - 1; i >= 0; i--) {
-            heapify(array, n, i);
-        }
-
-        for (int i = n - 1; i > 0; i--) {
-            int oldRoot = array[0];
-            array[0] = array[i];
-            array[i] = oldRoot;
-            heapify(array, i, 0);
-        }
-
-    }
-
-    private void heapify(int[] array, int n, int i) {
-        int largest = i;
-        int leftChild = 2 * i + 1;
-        int rightChild = 2 * i + 2;
-
-        if (leftChild < n && array[leftChild] > array[largest]) {//
-            largest = leftChild;
-        }
-
-        if (rightChild < n && array[rightChild] > array[largest]) {//
-            largest = rightChild;
-        }
-
-        if (largest != i) {//?
-            int swap = array[i];
-            array[i] = array[largest];
-            array[largest] = swap;
-
-            heapify(array, n, largest);
+        for (int i = getArraySize() -1; i > 0; i--) {
+            swap(array, 0, i);
+            heapify(array, i,0);
         }
     }
 
+    private void buildMaxHeap(int[] array) {
+        for (int i =  getArraySize() / 2 - 1; i >= 0; i--) {
+            heapify(array, getArraySize(), i);
+        }
+    }
+
+    private void heapify(int[] array, int size, int i) {
+        int max = i, left = 2 * i + 1, right = 2 * i + 2;
+
+        if (left < size) {
+            if (array[max] < array[left]) {
+                max = left;
+            }
+            setComparisons(getComparisons() + 1);
+        }
+
+        if (right < size) {
+            if (array[max] < array[right]) {
+                max = right;
+            }
+            setComparisons(getComparisons() + 1);
+        }
+
+        if (i != max) {
+            swap(array, i, max);
+            heapify(array, size, max);
+        }
+    }
+
+    private void swap(int[] array, int index0, int index1) {
+        int swapValue = array[index0];
+        array[index0] = array[index1];
+        array[index1] = swapValue;
+    }
 }

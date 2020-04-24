@@ -32,7 +32,7 @@ public class MergeSort extends Sort {
             return;
         }
         int n = array.length;
-        int middle = (n + 1) / 2;
+        int middle = (n) / 2;
         int[] arrayL = Arrays.copyOfRange(array, 0, middle);
         int[] arrayR = Arrays.copyOfRange(array, middle, n);
         mergeSort(arrayL);
