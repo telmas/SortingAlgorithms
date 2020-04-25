@@ -26,8 +26,6 @@ public class HeapSort extends Sort  {
         heapSort.sortArray();
     }
 
-
-
     private void heapSort(int[] array) {
         buildMaxHeap(array);
 
