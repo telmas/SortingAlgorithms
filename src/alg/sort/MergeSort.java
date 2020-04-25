@@ -24,7 +24,7 @@ public class MergeSort extends Sort {
         Path filePath = Paths.get(filePathString);
         MergeSort mergesort = new MergeSort();
         mergesort.readTextFileInputArray(filePath);
-        mergesort.sortArray();
+        mergesort.sortArrayWithOutput();
     }
 
     private void mergeSort(int[] array) {

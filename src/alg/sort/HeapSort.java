@@ -23,7 +23,7 @@ public class HeapSort extends Sort  {
         Path filePath = Paths.get(filePathString);
         HeapSort heapSort = new HeapSort();
         heapSort.readTextFileInputArray(filePath);
-        heapSort.sortArray();
+        heapSort.sortArrayWithOutput();
     }
 
     private void heapSort(int[] array) {

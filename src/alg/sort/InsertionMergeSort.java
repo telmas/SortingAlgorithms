@@ -24,7 +24,7 @@ public class InsertionMergeSort extends Sort {
         Path filePath = Paths.get(filePathString);
         InsertionMergeSort insertionMergeSort = new InsertionMergeSort();
         insertionMergeSort.readTextFileInputArray(filePath);
-        insertionMergeSort.sortArray();
+        insertionMergeSort.sortArrayWithOutput();
     }
 
     private void mergeSort(int[] array) {

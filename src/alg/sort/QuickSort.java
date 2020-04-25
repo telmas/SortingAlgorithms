@@ -24,7 +24,7 @@ public class QuickSort extends Sort {
         Path filePath = Paths.get(filePathString);
         QuickSort quickSort = new QuickSort();
         quickSort.readTextFileInputArray(filePath);
-        quickSort.sortArray();
+        quickSort.sortArrayWithOutput();
     }
 
     private void quickSort(int[] array, int p, int q) {

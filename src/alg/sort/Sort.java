@@ -30,8 +30,13 @@ public abstract class Sort implements Sorter {
     }
 
     public void sortArray() {
+        setComparisons(sort(getArray()));
+    }
+
+    public void sortArrayWithOutput() {
         System.out.println("Array size:" + getArraySize());
         long comparisons = sort(getArray());
+        setComparisons(comparisons);
         System.out.println("Sorted array: " + Arrays.toString(getArray()));
         System.out.println("Number of comparisons: " + comparisons);
     }
