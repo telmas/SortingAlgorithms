@@ -5,8 +5,12 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 
 public class InsertionMergeSort extends Sort {
+
+    private int threshold = 6;
+
     @Override
     public long sort(int[] arr) {
+        setThreshold(calculateLogBase2(arr.length));
         mergeSort(arr);
         return getComparisons();
     }
@@ -28,7 +32,7 @@ public class InsertionMergeSort extends Sort {
     }
 
     private void mergeSort(int[] array) {
-        if (array.length <= 10) {//todo threshold
+        if (array.length <= getThreshold()) {
             insertionSort(array);
             return;
         }
@@ -80,7 +84,7 @@ public class InsertionMergeSort extends Sort {
             int j = i - 1;
             while (j >= 0 && incrementAndCompare(array[j], key)) {
                 array[j + 1] = array[j];
-                j = j -1;
+                j = j - 1;
             }
             array[j + 1] = key;
         }
@@ -89,5 +93,17 @@ public class InsertionMergeSort extends Sort {
     private boolean incrementAndCompare(int arrayValue, int key) {
         setComparisons(getComparisons() + 1);
         return arrayValue > key;
+    }
+
+    public int getThreshold() {
+        return threshold;
+    }
+
+    public void setThreshold(int threshold) {
+        this.threshold = threshold;
+    }
+
+    public static int calculateLogBase2(long n) {
+        return (int)(Math.log(n) / Math.log(2));
     }
 }

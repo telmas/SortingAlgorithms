@@ -44,31 +44,31 @@ public class MergeSort extends Sort {
         int arrayLSize = arrayL.length;
         int arrayRSize = arrayR.length;
 
-        int arrayPointer = 0, arrayLPointer = 0, arrayRPointer =0;
+        int arrayIndex = 0, arrayLIndex = 0, arrayRIndex = 0;
 
-        while (arrayLPointer < arrayLSize && arrayRPointer < arrayRSize) {
-            if (arrayL[arrayLPointer] <= arrayR[arrayRPointer])  {
-                array[arrayPointer] = arrayL[arrayLPointer];
-                arrayLPointer++;
+        while (arrayLIndex < arrayLSize && arrayRIndex < arrayRSize) {
+            if (arrayL[arrayLIndex] <= arrayR[arrayRIndex])  {
+                array[arrayIndex] = arrayL[arrayLIndex];
+                arrayLIndex++;
             } else {
-                array[arrayPointer] = arrayR[arrayRPointer];
-                arrayRPointer++;
+                array[arrayIndex] = arrayR[arrayRIndex];
+                arrayRIndex++;
             }
-            arrayPointer++;
+            arrayIndex++;
             setComparisons(getComparisons() + 1);
         }
 
-        if (arrayLPointer == arrayLSize) {
-            while (arrayRPointer < arrayRSize) {
-                array[arrayPointer] = arrayR[arrayRPointer];
-                arrayRPointer++;
-                arrayPointer++;
+        if (arrayLIndex == arrayLSize) {
+            while (arrayRIndex < arrayRSize) {
+                array[arrayIndex] = arrayR[arrayRIndex];
+                arrayRIndex++;
+                arrayIndex++;
             }
         } else {
-            while (arrayLPointer < arrayLSize) {
-                array[arrayPointer] = arrayL[arrayLPointer];
-                arrayLPointer++;
-                arrayPointer++;
+            while (arrayLIndex < arrayLSize) {
+                array[arrayIndex] = arrayL[arrayLIndex];
+                arrayLIndex++;
+                arrayIndex++;
             }
         }
     }
