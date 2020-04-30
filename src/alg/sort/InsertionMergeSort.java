@@ -10,7 +10,6 @@ public class InsertionMergeSort extends Sort {
 
     @Override
     public long sort(int[] arr) {
-        setThreshold(calculateLogBase2(arr.length));
         mergeSort(arr);
         return getComparisons();
     }
@@ -24,6 +23,7 @@ public class InsertionMergeSort extends Sort {
 
         String filePathString = args[0].trim();
         System.out.println("Got the file path argument:" + filePathString);
+        System.out.println("Algorithm: Ins-MergeSort");
 
         Path filePath = Paths.get(filePathString);
         InsertionMergeSort insertionMergeSort = new InsertionMergeSort();
@@ -101,9 +101,5 @@ public class InsertionMergeSort extends Sort {
 
     public void setThreshold(int threshold) {
         this.threshold = threshold;
-    }
-
-    public static int calculateLogBase2(long n) {
-        return (int)(Math.log(n) / Math.log(2));
     }
 }

@@ -74,43 +74,32 @@ public class Simulation {
 
     private static void simulateSorting() {
         for (int i = 500; i <= RANGE_LIMIT; i = i + INCREMENT_CONSTANT) {
-            System.out.println("Input Size: " + i);
-//        int i = 100;
-//                System.out.println("Test Number: " + j);
-        for (int j = 0; j < TEST_NUMBER; j++) {
-            int[] randomArray = generateRandomArray(i);
-            long mergeSortComparisons = testMergeSort(i, randomArray.clone());
-            System.out.println(mergeSortComparisons);
+            System.out.println("Input size: " + i + "\n");
+            for (int j = 0; j < TEST_NUMBER; j++) {
+                int[] randomArray = generateRandomArray(i);
+                long mergeSortComparisons = testMergeSort(i, randomArray.clone());
+                System.out.println(mergeSortComparisons);
+            }
+            System.out.println("\n\n\n\n");
+            for (int j = 0; j < TEST_NUMBER; j++) {
+                int[] randomArray = generateRandomArray(i);
+                long heapSortComparisons = testHeapSort(i, randomArray.clone());
+                System.out.println(heapSortComparisons);
+            }
+            System.out.println("\n\n\n\n");
+            for (int j = 0; j < TEST_NUMBER; j++) {
+                int[] randomArray = generateRandomArray(i);
+                long quickSortComparisons = testQuickSort(i, randomArray.clone());
+                System.out.println(quickSortComparisons);
+            }
+            System.out.println("\n\n\n\n");
+            for (int j = 0; j < TEST_NUMBER; j++) {
+                int[] randomArray = generateRandomArray(i);
+                long insertionMergeSortComparisons = testInsertionMergeSort(i, randomArray.clone());
+                System.out.println(insertionMergeSortComparisons);
+            }
+            System.out.println("\n\n\n\n");
         }
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        for (int j = 0; j < TEST_NUMBER; j++) {
-            int[] randomArray = generateRandomArray(i);
-            long heapSortComparisons = testHeapSort(i, randomArray.clone());
-            System.out.println(heapSortComparisons);
-        }
-
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        for (int j = 0; j < TEST_NUMBER; j++) {
-            int[] randomArray = generateRandomArray(i);
-            long quickSortComparisons = testQuickSort(i, randomArray.clone());
-            System.out.println(quickSortComparisons);
-        }
-
-//        for (int j = 0; j < TEST_NUMBER; j++) {
-//            int[] randomArray = generateRandomArray(i);
-//            long insertionMergeSortComparisons = testInsertionMergeSort(i, randomArray.clone());
-//            System.out.println(insertionMergeSortComparisons);
-//        }
-        }
-
     }
 
 //    private static void simulateInsertionMergeSortingByThreshold() {
@@ -148,19 +137,5 @@ public class Simulation {
 //            }
 //            System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         }
-    }
-
-    public static int[] readFile(String fileName) {
-        try {
-            Pattern pattern = Pattern.compile(" ");
-            return Files.lines(Paths.get(new File(fileName).getPath()))
-                    .flatMap(pattern::splitAsStream)
-                    .skip(1)
-                    .mapToInt(Integer::parseInt)
-                    .toArray();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return new int[0];
     }
 }

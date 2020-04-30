@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -34,10 +33,8 @@ public abstract class Sort implements Sorter {
     }
 
     public void sortArrayWithOutput() {
-        System.out.println("Array size:" + getArraySize());
         long comparisons = sort(getArray());
         setComparisons(comparisons);
-        System.out.println("Sorted array: " + Arrays.toString(getArray()));
         System.out.println("Number of comparisons: " + comparisons);
     }
 

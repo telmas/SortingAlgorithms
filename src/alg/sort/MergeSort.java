@@ -20,6 +20,7 @@ public class MergeSort extends Sort {
 
         String filePathString = args[0].trim();
         System.out.println("Got the file path argument:" + filePathString);
+        System.out.println("Algorithm: MergeSort");
 
         Path filePath = Paths.get(filePathString);
         MergeSort mergesort = new MergeSort();

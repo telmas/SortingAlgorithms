@@ -19,6 +19,7 @@ public class HeapSort extends Sort  {
 
         String filePathString = args[0].trim();
         System.out.println("Got the file path argument:" + filePathString);
+        System.out.println("Algorithm: HeapSort");
 
         Path filePath = Paths.get(filePathString);
         HeapSort heapSort = new HeapSort();

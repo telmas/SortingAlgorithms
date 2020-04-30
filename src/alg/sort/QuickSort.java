@@ -20,6 +20,7 @@ public class QuickSort extends Sort {
 
         String filePathString = args[0].trim();
         System.out.println("Got the file path argument:" + filePathString);
+        System.out.println("Algorithm: QuickSort");
 
         Path filePath = Paths.get(filePathString);
         QuickSort quickSort = new QuickSort();
