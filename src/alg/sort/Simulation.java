@@ -1,17 +1,10 @@
 package alg.sort;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.security.SecureRandom;
-import java.sql.Array;
-import java.util.Arrays;
-import java.util.regex.Pattern;
 
 public class Simulation {
     private static final int TEST_NUMBER = 5;
-    private static final int RANGE_LIMIT = 10000;
+    private static final int RANGE_LIMIT = 100_000;
     private static final int INCREMENT_CONSTANT = 500;
 
     public static void main(String[] args) {
@@ -102,40 +95,17 @@ public class Simulation {
         }
     }
 
-//    private static void simulateInsertionMergeSortingByThreshold() {
-//
-////            System.out.println("Threshold: " + m);
-//        for (int i = 100; i <= RANGE_LIMIT; i = i * INCREMENT_CONSTANT) {
-////                System.out.println("Input Size: " + i);
-//            int[] randomArray = generateRandomArray(i);
-//            for (int j = 0; j < TEST_NUMBER; j++) {
-////                    int[] randomArray = readFile((j + 1) + "_" + i + ".txt");
-//                for (int m = 1; m <= 18; m++) {
-//                    long insertionMergeSortComparisons = testInsertionMergeSortByThreshold(i, randomArray.clone(), m);
-//                    System.out.print(insertionMergeSortComparisons + " ");
-//                }
-//                System.out.println();
-//
-//            }
-//            System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-//        }
-//    }
-
     private static void simulateInsertionMergeSortingByThreshold() {
         for (int m = 1; m <= 18; m++) {
-            System.out.println("M: " + m);
-//            for (int i = 100; i <= RANGE_LIMIT; i = i * INCREMENT_CONSTANT) {
-               int i = 10000;
-               long[] results = new long[100];
-               for (int j = 0; j < TEST_NUMBER; j++) {
-                   int[] randomArray = generateRandomArray(i);
-                   long insertionMergeSortComparisons = testInsertionMergeSortByThreshold(i, randomArray.clone(), m);
-                   results[j] = insertionMergeSortComparisons;
+            for (int i = 100; i <= RANGE_LIMIT; i = i * INCREMENT_CONSTANT) {
+                for (int j = 0; j < TEST_NUMBER; j++) {
+                    int[] randomArray = generateRandomArray(i);
+                    long insertionMergeSortComparisons = testInsertionMergeSortByThreshold(i, randomArray.clone(), m);
+                    System.out.println(insertionMergeSortComparisons);
                 }
-            System.out.printf("%f\n", Arrays.stream(results).average().getAsDouble());
-//                System.out.println();
-//            }
-//            System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+                System.out.println("\n\n\n\n");
+            }
+            System.out.println("----------------------------------------------------------------------------");
         }
     }
 }
